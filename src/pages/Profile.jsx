@@ -30,9 +30,7 @@ return (
               Manage Addresses
             </Link>
 
-            <Link to="/OrderHistory" className="btn btn-success w-100">
-              View Order History
-            </Link>
+            
           </div>
         </div>
 

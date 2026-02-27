@@ -76,8 +76,10 @@ export function ShopProvider({children}){
         return saved ? JSON.parse(saved) : []
       })
     const [cart, setCart] = useState([])
+    const [orders, setOrders] = useState([])
 
     function setCategory(categoryname){
+      console.log(categoryname)
       let updated = [...selectedCategories]
 
         if (updated.includes(categoryname)) {

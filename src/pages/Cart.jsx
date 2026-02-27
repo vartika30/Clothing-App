@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import useShopContext from "../contexts/ShopContext";
 export default function Cart(){
-    const {products,cart,handleWishlist,wishlist,handleRemove,handleDecrease,handleIncrease} = useShopContext();
+    const {products,cart,handleWishlist,wishlist,handleRemove,handleDecrease,handleIncrease,handleOrderHistory} = useShopContext();
     const cartIds = JSON.parse(localStorage.getItem("cart")) || cart
     console.log(cartIds);
       const cartdata = products.filter(product =>
@@ -26,7 +26,7 @@ export default function Cart(){
 
     return(
         <>
-        
+       
          <div className="container bg-light mt-3">
             <h5 className="py-3">My Cart({cartdata.length})</h5> 
             <div className="row">
@@ -35,7 +35,7 @@ export default function Cart(){
                   {cartdata.map(item => (
                   
                     <div key={item.id} class="row my-3">
-                        <div class="col-md-6">
+                        <div className="col-md-6">
                         <img
                             src={item.image}
                             className="card-img-top"
@@ -75,7 +75,7 @@ export default function Cart(){
                     
                  
                 </div>
-
+     
                 <div className="col-md-4 mt-4">
                     <div className="bg-white p-4">
                         <p className="fw-bold text-start">Price Detail</p>
@@ -97,7 +97,7 @@ export default function Cart(){
                         <hr />
                         <Link to="/Checkout">
                             <div className="d-grid pt-2">
-                                <button className="btn btn-primary" type="button">Place order</button><br/>
+                                <button className="btn btn-primary" type="button" onClick={() => handleOrderHistory()}>Place order</button><br/>
                             </div>
                         </Link>
                          

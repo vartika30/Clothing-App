@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import { useState } from "react"
 
 export default function Addresses() {
@@ -22,18 +21,32 @@ export default function Addresses() {
       }
 
       const handleSave = () => {
-      const newAddress = {
-        id: Date.now(),
-        house: formData.house,
-        street: formData.street,
-        area: formData.area,
-        city: formData.city,
-        pincode: formData.pincode
-      }
-      const updatedAddresses = [newAddress, ...addresses]
-       setAddresses(updatedAddresses)
+        let updatedAddresses
+        if (editingId) {
+          console.log(editingId)
+           updatedAddresses = addresses.map(addr =>
+            addr.id === editingId
+              ? { id:editingId, ...formData }
+              : addr
+          )
+          setAddresses(updatedAddresses)
        localStorage.setItem("addresses", JSON.stringify(updatedAddresses))
 
+        }else{
+          const newAddress = {
+          id: Date.now(),
+          house: formData.house,
+          street: formData.street,
+          area: formData.area,
+          city: formData.city,
+          pincode: formData.pincode
+        }
+         updatedAddresses = [newAddress, ...addresses]
+          setAddresses(updatedAddresses)
+       localStorage.setItem("addresses", JSON.stringify(updatedAddresses))
+
+        }
+      
       setFormData({
         house: "",
         street: "",
@@ -41,15 +54,18 @@ export default function Addresses() {
         city: "",
         pincode: ""
       })
+      setEditingId(null)
     }
 
-    const handleDelete = (id) => {
+    function handleDelete(id){
     const updated = addresses.filter(addr => addr.id !== id)
     setAddresses(updated)
     localStorage.setItem("addresses", JSON.stringify(updated))
   }
 
-  const handleEdit = (address) => {
+  function handleEdit(id) {
+     const address = saved.find(addr => addr.id === id)
+     
   setFormData({
     house: address.house,
     street: address.street,
@@ -57,7 +73,7 @@ export default function Addresses() {
     city: address.city,
     pincode: address.pincode
   })
-
+ 
   setEditingId(address.id)
 }
 
@@ -83,8 +99,7 @@ export default function Addresses() {
               <div className="d-flex gap-2">
                 <button
                   className="btn btn-sm btn-outline-dark"
-                  onClick={() => handleEdit(addr)}
-                >
+                  onClick={() => handleEdit(addr.id)}>
                   Edit
                 </button>
                 <button className="btn btn-sm btn-outline-danger"
@@ -98,7 +113,7 @@ export default function Addresses() {
 
       </div>
 
-      {/* Add New Address Form */}
+      
       <div className="card p-4 shadow-sm mt-4">
         <h5 className="mb-3">Add New Address</h5>
 
@@ -108,6 +123,7 @@ export default function Addresses() {
             <input
               type="text"
               name="house"
+              value = {formData.house}
               className="form-control"
               placeholder="House No."
               onChange={handleChange}
@@ -118,6 +134,7 @@ export default function Addresses() {
             <input
               type="text"
               name="street"
+              value = {formData.street}
               className="form-control"
               placeholder="Street"
               onChange={handleChange}
@@ -127,6 +144,7 @@ export default function Addresses() {
           <div className="col-12">
             <textarea
               className="form-control"
+              value = {formData.area}
               rows="3"
                name="area"
               placeholder="Area"
@@ -138,6 +156,7 @@ export default function Addresses() {
             <input
               type="text"
                name="city"
+               value = {formData.city}
               className="form-control"
               placeholder="City"
               onChange={handleChange}
@@ -148,6 +167,7 @@ export default function Addresses() {
             <input
               type="text"
                name="pincode"
+               value = {formData.pincode}
               className="form-control"
               placeholder="Pincode"
               onChange={handleChange}

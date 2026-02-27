@@ -5,7 +5,7 @@ export default function Homepage(){
 const {setCategory} = useShopContext();
  const handleCategoryClick = (cat) => {
   console.log("clicked");
-  setCategory([cat]); // override previous
+  setCategory(cat); // override previous
   window.location.href ="/ProductListing";
 };
     return(
