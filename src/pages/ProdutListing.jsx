@@ -1,10 +1,23 @@
 import { Link } from "react-router-dom"
 import { useParams } from "react-router-dom";
 import useShopContext from "../contexts/ShopContext";
+import { useEffect } from "react";
 
 export default function ProductListing(){
     const {updateProductcategory,setCategory,setRating,handleSort,handlePriceChange,priceRange,
         handleWishlist,wishlist,handleCart} = useShopContext();
+
+        const {category} = useParams();
+      
+        useEffect(()=>{
+            if (category) {
+            setCategory(category)
+            }else{
+                setCategory("")
+            }
+        },[category])
+       
+        
 
     return(
         <div>

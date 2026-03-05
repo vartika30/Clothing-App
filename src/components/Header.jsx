@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import useShopContext from "../contexts/ShopContext";
 
 export default function Header(){
-   const {products,cart} = useShopContext();
+   const {products,cart,search,handleSearch} = useShopContext();
    const cartIds = JSON.parse(localStorage.getItem("cart")) || cart
       
     return (
@@ -14,7 +14,9 @@ export default function Header(){
              </Link>
            </div>
            <div className="col-md-4">
-             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+             <input className="form-control me-2" type="search" placeholder="Search" value={search}
+               onChange={(e) => handleSearch(e.target.value)}
+             aria-label="Search" />
              
            </div>
            <div className="col-md-4 d-flex justify-content-end gap-3">

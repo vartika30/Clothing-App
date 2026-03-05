@@ -118,14 +118,22 @@ export function ShopProvider({children}){
       let updated = [...wishlist]
         if (updated.includes(productId)) {
          updated = wishlist.filter(id => id !== productId)
+          alert("Item removed from wishlist!")
         } else {
           updated.push(productId)
+           alert("Item added to wishlist!")
         }
         setWishlist(updated)
          localStorage.setItem("wishlist", JSON.stringify(updated))
+        
       }
 
-    function applyFilters(categories, ratings,sortOption,priceRange,wishlist) {
+      function handleSearch(searchValue) {
+        setSearch(searchValue)
+        applyFilters(selectedCategories, selectedRatings,sortOption,priceRange,wishlist,searchValue)
+    }
+
+    function applyFilters(categories, ratings,sortOption,priceRange,wishlist,search) {
         let filtered = products
 
         if (categories.length > 0) {
@@ -151,6 +159,14 @@ export function ShopProvider({children}){
             filtered.sort((a, b) => b.price - a.price)
           }
 
+        if(search){
+          console.log(search)
+          filtered = filtered.filter(product =>
+          product.name.toLowerCase().includes(search.toLowerCase())
+)
+  
+        }  
+
          
         selectCategory(filtered)
       }
@@ -170,15 +186,17 @@ export function ShopProvider({children}){
         setCart(updatedCart)
 
         localStorage.setItem("cart", JSON.stringify(updatedCart))
+        alert("Item added to cart!")
      }
 
-     const handleRemove = (id) => {
+     function handleRemove(id){
       const updatedCart = cart.filter(item => item.id !== id)
       setCart(updatedCart)
       localStorage.setItem("cart", JSON.stringify(updatedCart))
+       alert("Item removed from cart!")
     }
 
-    const handleIncrease = (id) => {
+    function handleIncrease(id){
       const updatedCart = cart.map(item =>
         item.id === id
           ? { ...item, quantity: item.quantity + 1 }
@@ -187,9 +205,10 @@ export function ShopProvider({children}){
 
       setCart(updatedCart)
       localStorage.setItem("cart", JSON.stringify(updatedCart))
+      alert("Quantity added to Item!")
     }
 
-    const handleDecrease = (id) => {
+    function handleDecrease(id){
         const updatedCart = cart
           .map(item =>
             item.id === id
@@ -200,13 +219,14 @@ export function ShopProvider({children}){
 
         setCart(updatedCart)
         localStorage.setItem("cart", JSON.stringify(updatedCart))
+        alert("Quantity removed from item!")
       }
 
-
+     
 
    return(
     <ShopContext.Provider value={{products,updateProductcategory,setCategory,setRating,handleSort,
-    handlePriceChange,priceRange,handleWishlist,wishlist,handleCart,cart,handleRemove,handleDecrease,handleIncrease}}>
+    handlePriceChange,priceRange,handleWishlist,wishlist,handleCart,cart,handleRemove,handleDecrease,handleIncrease,handleSearch,search}}>
     {children}
     </ShopContext.Provider>
    )
