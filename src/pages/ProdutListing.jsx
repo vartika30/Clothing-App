@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 export default function ProductListing(){
     const {updateProductcategory,setCategory,setRating,handleSort,handlePriceChange,priceRange,
-        handleWishlist,wishlist,handleCart} = useShopContext();
+        handleWishlist,wishlist,handleCart,alert} = useShopContext();
 
         const {category} = useParams();
       
@@ -111,7 +111,14 @@ export default function ProductListing(){
             </div>
 
             <div className="col-md-9 bg-light mt-8">
+
+                 {alert && (
+                <div className={`alert alert-${alert.type} w-auto`}>
+                    {alert.message}
+                </div>
+                )}
                <h5 className="text-start py-3">Showing all products</h5> 
+              
             <div className="row">
                {updateProductcategory.map(item => (
                 <div key={item.id} className="col-md-4 my-3">

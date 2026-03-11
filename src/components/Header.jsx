@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import useShopContext from "../contexts/ShopContext";
 
 export default function Header(){
-   const {products,cart,search,handleSearch} = useShopContext();
+   const {products,cart,search,handleSearch,wishlist} = useShopContext();
    const cartIds = JSON.parse(localStorage.getItem("cart")) || cart
       
     return (
@@ -26,6 +26,9 @@ export default function Header(){
              
              <Link to="/wishlist" className="text-dark position-relative">
                 <i className="bi bi-heart fs-4"></i>
+                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                {wishlist.length}
+                </span>
             </Link>
              <Link to="/cart" className="text-dark position-relative ">
                 <i className="bi bi-cart fs-4"></i>

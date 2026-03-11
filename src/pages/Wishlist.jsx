@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import useShopContext from "../contexts/ShopContext";
 export default function Wishlist(){
-     const {products,wishlist,handleCart} = useShopContext();
+     const {products,wishlist,handleCart,alert} = useShopContext();
 
     const wishlistIds = JSON.parse(localStorage.getItem("wishlist")) || wishlist
       
@@ -10,7 +10,11 @@ export default function Wishlist(){
         
     return(
         <>
-       
+        {alert && (
+                <div className={`alert alert-${alert.type} w-auto`}>
+                    {alert.message}
+                </div>
+                )}
         <div className="container">
             <div className="bg-light mt-4">
                <h5 className="py-3">My Wishlist</h5> 

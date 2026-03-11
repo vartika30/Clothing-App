@@ -62,6 +62,87 @@ export function ShopProvider({children}){
         image: "https://stanwellskids.in/cdn/shop/files/babypinkrany2-_1_1024x1024.jpg",
         description: "Premium cotton hoodie"
       },
+      {
+        id: 7,
+        name: "Shirt",
+        category: "men",
+        price: 1099,
+        rating: 3.5,
+        image: "https://i.pinimg.com/736x/04/b4/a8/04b4a8c49186b625847e5a060753aef3.jpg",
+        description: "Premium cotton shirt"
+      },
+      {
+        id: 8,
+        name: "T-Shirt",
+        category: "men",
+        price: 999,
+        rating: 4,
+        image: "https://vader-prod.s3.amazonaws.com/1762694268-mhl-tshirts-mackweldon-0260-688a641b198e3.jpg",
+        description: "Summer t-shirt"
+      },
+       {
+        id: 9,
+        name: "Shorts",
+        category: "men",
+        price: 599,
+        rating: 3,
+        image: "https://imagescdn.pantaloons.com/img/app/product/1/1018836-13894415.jpg",
+        description: "Denim shorts"
+      },
+      {
+        id: 10,
+        name: "Shorts",
+        category: "women",
+        price: 599,
+        rating: 3,
+        image: "https://metalhawk.in/cdn/shop/products/MHWJN19650_2.jpg",
+        description: "Denim shorts"
+      },
+       {
+        id: 11,
+        name: "Shirt",
+        category: "women",
+        price: 899,
+        rating: 3,
+        image: "https://i.pinimg.com/736x/70/a7/37/70a737b96c845f08b41763afe885babf.jpg",
+        description: "Oversized t-shirt"
+      },
+       {
+        id: 12,
+        name: "Kurti Salwar",
+        category: "women",
+        price: 1299,
+        rating: 4,
+        image: "https://5.imimg.com/data5/SELLER/Default/2022/1/VT/QP/SD/52451400/ladies-salwar-suit.jpeg",
+        description: "Cotton kurti salwar"
+      },
+      {
+        id: 13,
+        name: "Top",
+        category: "kids",
+        price: 299,
+        rating: 4,
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_MMvYV3VMImbUFVrSm2g-Ro83j2E6Pf8JcA&s",
+        description: "Cotton top"
+      },
+      {
+        id: 14,
+        name: "Skirt",
+        category: "kids",
+        price: 199,
+        rating: 4,
+        image: "https://img.tatacliq.com/images/i10/437Wx649H/MP000000016743668_437Wx649H_202303031929231.jpeg",
+        description: "Denim skirt"
+      },
+      {
+        id: 15,
+        name: "Jumsuite",
+        category: "kids",
+        price: 1599,
+        rating: 4,
+        image: "https://5.imimg.com/data5/SELLER/Default/2022/5/DL/PB/TZ/152310553/o1a9665-copy-500x500.jpg",
+        description: "Summer muslin jumsuite"
+      },
     ];
 
     const [search, setSearch] = useState("")
@@ -77,6 +158,15 @@ export function ShopProvider({children}){
       })
     const [cart, setCart] = useState([])
     const [orders, setOrders] = useState([])
+    const [alert, setAlert] = useState(null)
+
+    function showAlert(message, type){
+        setAlert({ message, type })
+
+        setTimeout(() => {
+          setAlert(null)
+        }, 3000)
+      }
 
     function setCategory(categoryname){
       console.log(categoryname)
@@ -118,10 +208,11 @@ export function ShopProvider({children}){
       let updated = [...wishlist]
         if (updated.includes(productId)) {
          updated = wishlist.filter(id => id !== productId)
-          alert("Item removed from wishlist!")
+         showAlert("Product removed from wishlist ", "success")
+         
         } else {
           updated.push(productId)
-           alert("Item added to wishlist!")
+           showAlert("Product added to wishlist ", "success")
         }
         setWishlist(updated)
          localStorage.setItem("wishlist", JSON.stringify(updated))
@@ -186,14 +277,14 @@ export function ShopProvider({children}){
         setCart(updatedCart)
 
         localStorage.setItem("cart", JSON.stringify(updatedCart))
-        alert("Item added to cart!")
+        showAlert("Product added to cart", "success")
      }
 
      function handleRemove(id){
       const updatedCart = cart.filter(item => item.id !== id)
       setCart(updatedCart)
       localStorage.setItem("cart", JSON.stringify(updatedCart))
-       alert("Item removed from cart!")
+      showAlert("Product removed from cart", "success")
     }
 
     function handleIncrease(id){
@@ -205,7 +296,7 @@ export function ShopProvider({children}){
 
       setCart(updatedCart)
       localStorage.setItem("cart", JSON.stringify(updatedCart))
-      alert("Quantity added to Item!")
+      showAlert("Product Quantity added ", "success")
     }
 
     function handleDecrease(id){
@@ -219,14 +310,14 @@ export function ShopProvider({children}){
 
         setCart(updatedCart)
         localStorage.setItem("cart", JSON.stringify(updatedCart))
-        alert("Quantity removed from item!")
+        showAlert("Product Quantity decresed ", "success")
       }
 
      
 
    return(
     <ShopContext.Provider value={{products,updateProductcategory,setCategory,setRating,handleSort,
-    handlePriceChange,priceRange,handleWishlist,wishlist,handleCart,cart,handleRemove,handleDecrease,handleIncrease,handleSearch,search}}>
+    handlePriceChange,priceRange,handleWishlist,wishlist,handleCart,cart,handleRemove,handleDecrease,handleIncrease,handleSearch,search,alert}}>
     {children}
     </ShopContext.Provider>
    )
