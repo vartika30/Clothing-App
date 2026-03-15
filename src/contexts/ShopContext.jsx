@@ -159,6 +159,7 @@ export function ShopProvider({children}){
     const [cart, setCart] = useState([])
     const [orders, setOrders] = useState([])
     const [alert, setAlert] = useState(null)
+   
 
     function showAlert(message, type){
         setAlert({ message, type })
@@ -262,17 +263,21 @@ export function ShopProvider({children}){
         selectCategory(filtered)
       }
 
-     function handleCart(productId){
-         const existingItem = cart.find(item => item.id === productId)
+     function handleCart(productId,Size){
+        if(!Size){
+         showAlert("Please select size", "error")
+          return
+        }
+         const existingItem = cart.find(item => item.id === productId && item.size === Size)
         let updatedCart
         if (existingItem) {
           updatedCart = cart.map(item =>
-            item.id === productId
+            item.id === productId && item.size === Size
               ? { ...item, quantity: item.quantity + 1 }
               : item
           )
         } else {
-          updatedCart = [...cart, { id: productId, quantity: 1 }]
+          updatedCart = [...cart, { id: productId, size: Size, quantity: 1 }]
         }
         setCart(updatedCart)
 

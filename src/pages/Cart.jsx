@@ -3,17 +3,18 @@ import useShopContext from "../contexts/ShopContext";
 export default function Cart(){
     const {products,cart,handleWishlist,wishlist,handleRemove,handleDecrease,handleIncrease,handleOrderHistory,alert} = useShopContext();
     const cartIds = JSON.parse(localStorage.getItem("cart")) || cart
-    console.log(cartIds);
+    
       const cartdata = products.filter(product =>
         cartIds.some(item => item.id === product.id))
-
+     console.log(cartdata);
         //calculating price
           const checkoutItems = cartIds.map(cartItem => {
             const product = products.find(p => p.id === cartItem.id)
 
             return {
                 ...product,
-                quantity: cartItem.quantity
+                quantity: cartItem.quantity,
+                size: cartItem.size
             }
             })
 
@@ -50,7 +51,7 @@ export default function Cart(){
                        <p className="fw-bold text-start"> 
                             {item.name}
                         </p> 
-                        <p className="fw-bold text-start">₹{item.price}</p>
+                        <p className="fw-bold text-start">₹{item.price} , {cartIds.find(c => c.id === item.id)?.size || item.size}</p>
                         <div className="mb-3 text-start">
                             <span className="fw-medium me-2">Quantity:</span>
                             <button className="btn btn-outline-secondary btn-sm"  onClick={() => handleDecrease(item.id)}>−</button>

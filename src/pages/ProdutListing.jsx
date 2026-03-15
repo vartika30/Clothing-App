@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom"
 import { useParams } from "react-router-dom";
 import useShopContext from "../contexts/ShopContext";
-import { useEffect } from "react";
+import { useEffect , useState} from "react";
 
 export default function ProductListing(){
     const {updateProductcategory,setCategory,setRating,handleSort,handlePriceChange,priceRange,
         handleWishlist,wishlist,handleCart,alert} = useShopContext();
-
+      const [Size, setSelectedSize] = useState("")
         const {category} = useParams();
       
         useEffect(()=>{
@@ -135,7 +135,7 @@ export default function ProductListing(){
                                 }></i>
                     </button>
                    
-                 <Link to="/ProductDetail">   
+                 <Link to="/ProductDetail" >   
                 <img
                   src={item.image}
                   className="card-img-top"
@@ -146,9 +146,17 @@ export default function ProductListing(){
                 
                 <p className="font-medium">{item.name}</p>
                 <span className="font-semibold">₹{item.price}</span>< br/>
+                 <div className="mb-1">
+                            <div className="btn-group">
+                            <button className={Size == "S" ? "btn btn-outline-primary btn-sm": "btn btn-outline-secondary btn-sm"} onClick={() => setSelectedSize("S")}>S</button>
+                            <button className={Size == "M" ? "btn btn-outline-primary btn-sm": "btn btn-outline-secondary btn-sm"} onClick={() => setSelectedSize("M")}>M</button>
+                            <button className={Size == "L" ? "btn btn-outline-primary btn-sm": "btn btn-outline-secondary btn-sm"} onClick={() => setSelectedSize("L")}>L</button>
+                            <button className={Size == "XL" ? "btn btn-outline-primary btn-sm": "btn btn-outline-secondary btn-sm"} onClick={() => setSelectedSize("XL")}>XL</button>
+                            </div>
+                        </div>
                 
                 <div className="d-grid pt-2">
-                    <button className="btn btn-primary" type="button" onClick={() => handleCart(item.id)} >Add to cart</button><br/>
+                    <button className="btn btn-primary" type="button" onClick={() => handleCart(item.id,Size)} >Add to cart</button><br/>
                 </div>
                
                
