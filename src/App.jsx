@@ -8,6 +8,7 @@ import { ShopProvider } from "./contexts/ShopContext";
 
 
 import Header from './components/Header'
+import Footer from './components/Footer'
 import Homepage from './pages/Homepage'
 import ProductListing from "./pages/ProdutListing";
 import ProductDetail from "./pages/ProductDetail";
@@ -30,7 +31,7 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/ProductListing" element={<ProductListing />} />
           <Route path="/ProductListing/:category" element={<ProductListing />} />
-          <Route path="/ProductDetail" element={<ProductDetail />} />
+          <Route path="/ProductDetail/:id" element={<ProductDetail />} />
           <Route path="/Wishlist" element={<Wishlist />} />
           <Route path="/Cart" element={<Cart />} />
           <Route path="/Profile" element={<Profile />} />
@@ -39,6 +40,7 @@ function App() {
           <Route path="/Order" element={<Order />} />
           <Route path="/OrderHistory" element={<OrderHistory />} />
         </Routes>
+        <Footer/>
       </Router>
       
     </ShopProvider>

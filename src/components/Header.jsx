@@ -8,14 +8,14 @@ export default function Header(){
 
  return (
 
-<header className="py-3 border-bottom">
+<header className="py-3 border-bottom bg-dark">
 <div className="container">
 
 <div className="row align-items-center g-3">
 
 
 <div className="col-12 col-md-3 col-lg-2">
-<Link to="/" className="text-dark text-decoration-none">
+<Link to="/" className="text-light text-decoration-none">
 <h5 className="mb-0">MyClothingSite</h5>
 </Link>
 </div>
@@ -40,14 +40,14 @@ User Profile
 </button>
 </Link>
 
-<Link to="/wishlist" className="text-dark position-relative">
+<Link to="/wishlist" className="text-light position-relative">
 <i className="bi bi-heart fs-4"></i>
 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
 {wishlist.length}
 </span>
 </Link>
 
-<Link to="/cart" className="text-dark position-relative">
+<Link to="/cart" className="text-light position-relative">
 <i className="bi bi-cart fs-4"></i>
 <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
 {cartIds.length}

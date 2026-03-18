@@ -32,10 +32,10 @@ export default function Cart(){
                     {alert.message}
                 </div>
                 )}
-         <div className="container bg-light mt-3">
+         <div className="bg-light mt-1">
             <h5 className="py-3">My Cart({cartdata.length})</h5> 
             <div className="row">
-                <div className="col-md-6 mt-4">
+                <div className="col-md-6 mt-2">
                   {cartdata.map(item => (
                   
                     <div key={item.id} class="row my-3">

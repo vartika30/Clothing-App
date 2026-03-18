@@ -135,7 +135,7 @@ export default function ProductListing(){
                                 }></i>
                     </button>
                    
-                 <Link to="/ProductDetail" >   
+                 <Link to={`/ProductDetail/${item.id}`} >   
                 <img
                   src={item.image}
                   className="card-img-top"

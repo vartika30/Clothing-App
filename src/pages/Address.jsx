@@ -81,24 +81,24 @@ export default function Addresses() {
     <>
 
    
-    <div className="container mt-5">
+    <div className="container mt-2">
       <h3 className="mb-4">My Addresses</h3>
 
       <div className="row">
 
        
         {saved.map(addr => (
-          <div className="col-md-6 mb-4" key={addr.id}>
-            <div className="card p-3 shadow-sm">
+          <div className="col-md-4 mb-4" key={addr.id}>
+            <div className="card p-3 shadow-sm text-start">
               <h6>{addr.house},{addr.street}</h6>
               <p className="mb-1">{addr.area}</p>
               <p className="mb-1">
                 {addr.city}, {addr.pincode}
               </p>
               
-              <div className="d-flex gap-2">
+              <div className="gap-2 text-end">
                 <button
-                  className="btn btn-sm btn-outline-dark"
+                  className="btn btn-sm btn-outline-dark mx-1"
                   onClick={() => handleEdit(addr.id)}>
                   Edit
                 </button>
@@ -175,7 +175,7 @@ export default function Addresses() {
           </div>
 
           <div className="col-12">
-            <button className="btn btn-dark w-100" onClick={handleSave}>
+            <button className="btn btn-primary " onClick={handleSave}>
               Save Address
             </button>
           </div>
