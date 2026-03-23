@@ -157,7 +157,6 @@ export function ShopProvider({children}){
         return saved ? JSON.parse(saved) : []
       })
     const [cart, setCart] = useState([])
-    const [orders, setOrders] = useState([])
     const [alert, setAlert] = useState(null)
    
 
@@ -318,11 +317,37 @@ export function ShopProvider({children}){
         showAlert("Product Quantity decresed ", "success")
       }
 
+      function handlePlaceOrder() {
+console.log("here");
+        if (cart.length === 0) {
+          showAlert("Cart is empty", "error");
+          return;
+        }
+console.log(cart);
+        const orders = JSON.parse(localStorage.getItem("orders")) || [];
+console.log(orders)
+        const newOrder = {
+          id: Date.now(),
+          items: cart,
+          total: cart.reduce((acc, item) => acc + item.price * item.quantity, 0),
+          date: new Date().toLocaleString()
+        };
+
+        const updatedOrders = [...orders, newOrder];
+console.log(updatedOrders);
+        localStorage.setItem("orders", JSON.stringify(updatedOrders));
+        localStorage.setItem("currentOrder", JSON.stringify(newOrder));
+        setCart([]);
+localStorage.removeItem("cart");
+
+        window.location.href = "/Order";
+      }
+
      
 
    return(
     <ShopContext.Provider value={{products,updateProductcategory,setCategory,setRating,handleSort,
-    handlePriceChange,priceRange,handleWishlist,wishlist,handleCart,cart,handleRemove,handleDecrease,handleIncrease,handleSearch,search,alert}}>
+    handlePriceChange,priceRange,handleWishlist,wishlist,handleCart,cart,handleRemove,handleDecrease,handleIncrease,handleSearch,search,alert,handlePlaceOrder}}>
     {children}
     </ShopContext.Provider>
    )

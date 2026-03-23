@@ -29,7 +29,9 @@ return (
             <Link to="/Address" className="btn btn-primary w-100 mb-3">
               Manage Addresses
             </Link>
-
+             <Link to="/OrderHistory" className="btn btn-primary w-100 mb-3">
+              Order History
+            </Link>
             
           </div>
         </div>

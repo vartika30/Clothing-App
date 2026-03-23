@@ -3,8 +3,9 @@ import useShopContext from "../contexts/ShopContext";
 export default function Order() {
   const {products} = useShopContext();
     
-  const cartIds = JSON.parse(localStorage.getItem("cart"))
-const cartdata = cartIds.map(cartItem => {
+  const currentOrder = JSON.parse(localStorage.getItem("currentOrder")) || [];
+  console.log(currentOrder.items);
+const cartdata = currentOrder.items.map(cartItem => {
             const product = products.find(p => p.id === cartItem.id)
 
             return {

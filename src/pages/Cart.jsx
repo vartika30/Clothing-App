@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import useShopContext from "../contexts/ShopContext";
 export default function Cart(){
-    const {products,cart,handleWishlist,wishlist,handleRemove,handleDecrease,handleIncrease,handleOrderHistory,alert} = useShopContext();
+    const {products,cart,handleWishlist,wishlist,handleRemove,handleDecrease,handleIncrease,alert} = useShopContext();
     const cartIds = JSON.parse(localStorage.getItem("cart")) || cart
     
       const cartdata = products.filter(product =>
@@ -101,7 +101,7 @@ export default function Cart(){
                         <hr />
                         <Link to="/Checkout">
                             <div className="d-grid pt-2">
-                                <button className="btn btn-primary" type="button" onClick={() => handleOrderHistory()}>Place order</button><br/>
+                                <button className="btn btn-primary" type="button" >Place order</button><br/>
                             </div>
                         </Link>
                          
