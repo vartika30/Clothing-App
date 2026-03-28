@@ -320,7 +320,7 @@ export function ShopProvider({children}){
       }
 
       function handlePlaceOrder() {
-console.log("here");
+
         if (cart.length === 0) {
           showAlert("Cart is empty", "error");
           return;
@@ -342,7 +342,7 @@ console.log("here");
         setCart([]);
         localStorage.removeItem("cart");
         
-        window.location.href = "/Order";
+        
       }
 
      

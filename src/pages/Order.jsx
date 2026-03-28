@@ -4,7 +4,7 @@ export default function Order() {
   const {products} = useShopContext();
     
   const currentOrder = JSON.parse(localStorage.getItem("currentOrder")) || [];
- 
+ console.log(currentOrder)
 const cartdata = currentOrder.items.map(cartItem => {
             const product = products.find(p => p.id === cartItem.id)
 
