@@ -22,7 +22,7 @@ export default function ProductListing(){
     return(
         <div>
        
-        <div className="row my-4">
+        <div className="row my-5">
             <div className="col-md-3 bg-white rounded-2xl shadow p-3 sticky top-6 h-fit">
              <div className="flex items-center justify-between mb-4">
                 <h6 className="text-start">Filters</h6>

@@ -263,7 +263,9 @@ export function ShopProvider({children}){
       }
 
      function handleCart(productId,Size){
+      
         if(!Size){
+          console.log()
          showAlert("Please select size", "error")
           return
         }
@@ -323,9 +325,9 @@ console.log("here");
           showAlert("Cart is empty", "error");
           return;
         }
-console.log(cart);
+
         const orders = JSON.parse(localStorage.getItem("orders")) || [];
-console.log(orders)
+
         const newOrder = {
           id: Date.now(),
           items: cart,
@@ -334,12 +336,12 @@ console.log(orders)
         };
 
         const updatedOrders = [...orders, newOrder];
-console.log(updatedOrders);
+
         localStorage.setItem("orders", JSON.stringify(updatedOrders));
         localStorage.setItem("currentOrder", JSON.stringify(newOrder));
         setCart([]);
-localStorage.removeItem("cart");
-
+        localStorage.removeItem("cart");
+        
         window.location.href = "/Order";
       }
 

@@ -5,7 +5,7 @@ export default function Homepage(){
 
     return(
         <>
-         <div className="">
+         <div className="my-4">
         <div >
           <img
             src="https://www.shutterstock.com/image-photo/summer-sale-happy-young-woman-260nw-1123345376.jpg"
@@ -17,7 +17,7 @@ export default function Homepage(){
           
           <h4 className="fw-semibold my-3 ">Shop by Category</h4>
 
-          <div className="row">
+          <div className="row pb-3">
             <div className="col-md-4 ">
               <div className="border-0 shadow-sm h-100 text-center bg-light">
                 <Link to="/ProductListing/men">

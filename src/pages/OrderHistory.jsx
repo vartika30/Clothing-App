@@ -23,7 +23,7 @@ export default function OrderHistory() {
   return (
     <>
     
-    <div className="container mt-5">
+    <div className="container my-5">
       <h3>Order History</h3>
       <hr />
     {allOrdersWithProducts.map(order => (

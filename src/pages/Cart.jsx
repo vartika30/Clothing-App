@@ -27,12 +27,13 @@ export default function Cart(){
 
     return(
         <>
-        {alert && (
+        
+         <div className="bg-light my-5">
+            {alert && (
                 <div className={`alert alert-${alert.type} w-auto`}>
                     {alert.message}
                 </div>
                 )}
-         <div className="bg-light mt-1">
             <h5 className="py-3">My Cart({cartdata.length})</h5> 
             <div className="row">
                 <div className="col-md-6 mt-2">
@@ -47,7 +48,7 @@ export default function Cart(){
                             /> 
                         </div>
                         <div className="col-md-6">
-                         <div className="bg-white ">
+                         <div className="bg-white p-2">
                        <p className="fw-bold text-start"> 
                             {item.name}
                         </p> 

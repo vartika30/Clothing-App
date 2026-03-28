@@ -13,13 +13,12 @@ export default function Wishlist(){
         
     return(
         <>
-        {alert && (
+            <div className="bg-light my-5">
+                 {alert && (
                 <div className={`alert alert-${alert.type} w-auto`}>
                     {alert.message}
                 </div>
                 )}
-        <div className="">
-            <div className="bg-light mt-1">
                <h5 className="py-3">My Wishlist</h5> 
             <div className="row">
             {whishlistdata.map(item => (
@@ -64,8 +63,7 @@ export default function Wishlist(){
             
            
             </div>
-        </div>
-         
+       
         </>
     )
 }

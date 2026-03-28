@@ -81,13 +81,13 @@ export default function Addresses() {
     <>
 
    
-    <div className="container mt-2">
-      <h3 className="mb-4">My Addresses</h3>
-
+    <div className="container mt-5">
+      
       <div className="row">
-
+          <h3 className="mb-4">My Addresses</h3>
        
         {saved.map(addr => (
+          
           <div className="col-md-4 mb-4" key={addr.id}>
             <div className="card p-3 shadow-sm text-start">
               <h6>{addr.house},{addr.street}</h6>

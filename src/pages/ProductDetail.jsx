@@ -4,7 +4,7 @@ import { useState} from "react";
 import useShopContext from "../contexts/ShopContext";
 export default function ProductDetail(){
      const { id } = useParams();
-  const {products,handleCart,handleDecrease,handleIncrease,cart} = useShopContext();
+  const {products,handleCart,handleDecrease,handleIncrease,cart,handleWishlist,wishlist,alert} = useShopContext();
   
   const [Size, setSelectedSize] = useState("")
 const product = products.find(item => item.id === Number(id));
@@ -12,33 +12,39 @@ const product = products.find(item => item.id === Number(id));
 return(
     <div>
        
-         <div className="container bg-light">
+         <div className="container bg-light my-3">
             <div className="row">
                 <div className="col-md-4 mt-4">
                   <div className="bg-white rounded-2xl shadow hover:shadow-lg transition p-4">
-                     <Link to="/wishlist">
-                      <button
-                        className="btn btn-light rounded-circle shadow position-absolute"
-                        >
-                        <i className="bi bi-heart"></i>
-                    </button>
-                     </Link>   
+                    <button
+                        className="btn btn-light rounded-circle shadow position-absolute" onClick={() => handleWishlist(product.id)}
+                        > 
+                        <i className={
+                                    wishlist.includes(product.id)
+                                    ? "bi bi-heart-fill text-danger"
+                                    : "bi bi-heart"
+                                }></i>
+                    </button> 
                     <img
                     src={product.image}
                     className="card-img-top"
                     alt="Kids"
                     />
-                     <Link to="/cart">
+                     
                         <div className="d-grid pt-2">
                            <button className="btn btn-primary" type="button" onClick={() => handleCart(product.id,Size)}>Add to cart</button><br/>
                         </div>
-                        </Link>
+                       
                     </div>
                 </div>
 
                 <div className="col-md-8 mt-4">
                     <div className="bg-white p-4">
-
+                    {alert && (
+                                    <div className={`alert alert-${alert.type} w-auto`}>
+                                        {alert.message}
+                                    </div>
+                                    )}
                         <h5 className="text-start">
                             {product.name} <span className="badge bg-success">{product.rating} ★</span>
                         </h5>

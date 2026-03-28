@@ -8,7 +8,7 @@ export default function Header(){
 
  return (
 
-<header className="py-3 border-bottom bg-dark">
+<header className="py-3 border-bottom bg-dark fixed-top">
 <div className="container">
 
 <div className="row align-items-center g-3">
