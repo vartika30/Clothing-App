@@ -41,8 +41,10 @@ return(
                 <div className="col-md-8 mt-4">
                     <div className="bg-white p-4">
                     {alert && (
+                                   <div className="position-fixed top-0 end-0 mt-5 p-3" style={{ zIndex: 9999 }}>    
                                     <div className={`alert alert-${alert.type} w-auto`}>
                                         {alert.message}
+                                    </div>
                                     </div>
                                     )}
                         <h5 className="text-start">

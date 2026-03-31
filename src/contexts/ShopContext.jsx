@@ -266,7 +266,7 @@ export function ShopProvider({children}){
       
         if(!Size){
           console.log()
-         showAlert("Please select size", "error")
+         showAlert("Please select size", "danger")
           return
         }
          const existingItem = cart.find(item => item.id === productId && item.size === Size)
@@ -327,7 +327,7 @@ export function ShopProvider({children}){
         }
 
         const orders = JSON.parse(localStorage.getItem("orders")) || [];
-
+console.log(cart);
         const newOrder = {
           id: Date.now(),
           items: cart,
@@ -336,6 +336,7 @@ export function ShopProvider({children}){
         };
 
         const updatedOrders = [...orders, newOrder];
+        console.log(newOrder);
 
         localStorage.setItem("orders", JSON.stringify(updatedOrders));
         localStorage.setItem("currentOrder", JSON.stringify(newOrder));

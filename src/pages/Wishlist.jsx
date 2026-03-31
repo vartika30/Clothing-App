@@ -15,8 +15,10 @@ export default function Wishlist(){
         <>
             <div className="bg-light my-5">
                  {alert && (
+               <div className="position-fixed top-0 end-0 mt-5 p-3" style={{ zIndex: 9999 }}>    
                 <div className={`alert alert-${alert.type} w-auto`}>
                     {alert.message}
+                </div>
                 </div>
                 )}
                <h5 className="py-3">My Wishlist</h5> 

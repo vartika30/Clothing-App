@@ -113,8 +113,10 @@ export default function ProductListing(){
             <div className="col-md-9 bg-light mt-8">
 
                  {alert && (
+                <div className="position-fixed top-0 end-0 mt-5 p-3" style={{ zIndex: 9999 }}>    
                 <div className={`alert alert-${alert.type} w-auto`}>
                     {alert.message}
+                </div>
                 </div>
                 )}
                <h5 className="text-start py-3">Showing all products</h5> 
