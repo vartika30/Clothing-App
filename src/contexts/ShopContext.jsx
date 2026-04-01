@@ -143,6 +143,51 @@ export function ShopProvider({children}){
         image: "https://5.imimg.com/data5/SELLER/Default/2022/5/DL/PB/TZ/152310553/o1a9665-copy-500x500.jpg",
         description: "Summer muslin jumsuite"
       },
+      {
+        id: 16,
+        name: "Leather Belt",
+        category: "accessories",
+        price: 799,
+        rating: 4,
+        image: "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03",
+        description: "Classic brown leather belt for everyday wear"
+      },
+      {
+        id: 17,
+        name: "Stylish Sunglasses",
+        category: "accessories",
+        price: 1299,
+        rating: 5,
+        image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083",
+        description: "UV protected trendy sunglasses"
+      },
+      {
+        id: 18,
+        name: "Analog Watch",
+        category: "accessories",
+        price: 2499,
+        rating: 4,
+        image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49",
+        description: "Elegant analog watch with leather strap"
+      },
+      {
+        id: 19,
+        name: "Handbag",
+        category: "accessories",
+        price: 1999,
+        rating: 4,
+        image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3",
+        description: "Spacious and stylish handbag for daily use"
+      },
+      {
+        id: 20,
+        name: "Casual Sneakers",
+        category: "accessories",
+        price: 2999,
+        rating: 5,
+        image: "https://images.unsplash.com/photo-1552346154-21d32810aba3?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c25lYWtlcnN8ZW58MHx8MHx8fDA%3D",
+        description: "Comfortable sneakers perfect for casual outings"
+      }
     ];
 
     const [search, setSearch] = useState("")

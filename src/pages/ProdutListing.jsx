@@ -69,6 +69,11 @@ export default function ProductListing(){
                 <input type="checkbox" value="kids" onChange={()=>setCategory("kids")}/> Kids
             </label>
             </div>
+            <div className="text-start"> 
+             <label className="flex items-center gap-2 text-sm mb-1">
+                <input type="checkbox" value="accessories" onChange={()=>setCategory("accessories")}/> Accessories
+            </label>
+            </div>
             </div>
 
 

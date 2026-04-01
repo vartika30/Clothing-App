@@ -65,6 +65,21 @@ export default function Homepage(){
                 </div>
               </div>
             </div>
+            <div className="col-md-4">
+              <div className="border-0 shadow-sm h-100 text-center bg-light">
+                <Link to="/ProductListing/accessories">
+                <img
+                  src="https://img.freepik.com/free-photo/top-view-accessoires-travel-with-women-clothing-concept-white-mobilephone-watch-bag-hat-map-camera-necklace-trousers-sunglasses-white-wood-table_1921-106.jpg" className="card-img-top"
+                  alt="Kids" 
+                  style={{ height: '150px', objectFit: 'cover' }}
+                />
+                </Link>
+                
+                <div className="card-body p-2">
+                  <h6 className="mb-0">Accessories</h6>
+                </div>
+              </div>
+            </div>
         </div>
 
           </div>
