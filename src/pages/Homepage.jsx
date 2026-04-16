@@ -5,7 +5,7 @@ export default function Homepage(){
 
     return(
         <>
-         <div className="my-4">
+         <div className="my-4 pt-4">
         <div >
           <img
             src="https://www.shutterstock.com/image-photo/summer-sale-happy-young-woman-260nw-1123345376.jpg"

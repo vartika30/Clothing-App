@@ -4,17 +4,18 @@ export default function Order() {
   const {products} = useShopContext();
     
   const currentOrder = JSON.parse(localStorage.getItem("currentOrder")) || [];
- console.log(currentOrder)
+    console.log(currentOrder)
 const cartdata = currentOrder.items.map(cartItem => {
             const product = products.find(p => p.id === cartItem.id)
 
             return {
                 ...product,
-                quantity: cartItem.quantity
+                quantity: cartItem.quantity,
+                date:  currentOrder.date
             }
             })
             
-   
+    console.log(cartdata)
   return (
     <>
     <div className="container text-center mt-5">
@@ -24,10 +25,15 @@ const cartdata = currentOrder.items.map(cartItem => {
          <div className="col-md-4"></div>
          <div className="col-md-4">
            <div className="card p-3">
-            <h5>Order Summary</h5>
+            <h5 className="text-start">Order Summary</h5>
             <hr />
+            
           {cartdata.map(item => (
-          <p key={item.id}>{item.name} x {item.quantity}</p>
+          <div key={item.id}>
+            <p className="text-start">Order on : {item.date}</p> 
+            <p className="text-start"> Product:  {item.name} x {item.quantity}</p>
+            <p className="text-start">Price : {item.price}</p> 
+            </div>
           ))}
            
           </div>

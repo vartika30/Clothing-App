@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { useEffect , useState} from "react";
 import useShopContext from "../contexts/ShopContext";
 export default function Wishlist(){
-     const {products,wishlist,handleCart,alert} = useShopContext();
+     const {products,handleWishlist,wishlist,handleCart,alert} = useShopContext();
  const [Size, setSelectedSize] = useState("")
     const wishlistIds = JSON.parse(localStorage.getItem("wishlist")) || wishlist
       
@@ -28,14 +28,18 @@ export default function Wishlist(){
                   
                 <div  className="bg-white rounded-2xl shadow hover:shadow-lg transition p-4">
                    
-                    <button
-                        className="btn btn-light rounded-circle shadow position-absolute"
-                        >
-                        <i className="bi bi-heart-fill text-danger"></i>
+                  <button
+                        className="btn btn-light rounded-circle shadow position-absolute" onClick={() => handleWishlist(item.id)}
+                        > 
+                        <i className={
+                                    wishlist.includes(item.id)
+                                    ? "bi bi-heart-fill text-danger"
+                                    : "bi bi-heart"
+                                }></i>
                     </button>
                    
                   
-                 <Link to="/ProductDetail">   
+                <Link to={`/ProductDetail/${item.id}`} >    
                 <img
                   src={item.image}
                   className="card-img-top"

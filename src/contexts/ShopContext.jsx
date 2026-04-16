@@ -7,188 +7,188 @@ export default useShopContext;
 export function ShopProvider({children}){
 
     
-  const productdata = [
-      {
-        id: 1,
-        name: "Black Hoodie",
-        category: "men",
-        price: 1499,
-        rating: 4.5,
-        image: "https://civies.in/cdn/shop/files/blackfront_390x.jpg",
-        description: "Premium cotton hoodie"
-      },
-      {
-        id: 2,
-        name: "Blue Denim Jacket",
-        category: "men",
-        price: 3499,
-        rating: 3,
-        image: "https://zazu.co.in/cdn/shop/files/69_c5e400c7-8353-48ad-8216-6746cad4241d.jpg",
-        description: "Stylish denim jacket"
-      },
-       {
-        id: 3,
-        name: "Blue Denim Skirt",
-        category: "women",
-        price: 2499,
-        rating: 4,
-        image: "https://assets.myntassets.com/dpr_1.5,q_30,w_400,c_limit,fl_progressive/assets/images/32801644/2025/3/7/38727191-7024-4040-8c04-a44f7f6f11f01741329823281-Chemistry-Women-Skirts-9591741329822623-1.jpg",
-        description: "Stylish denim jacket"
-      },
-      {
-        id: 4,
-        name: "White Hoodie",
-        category: "women",
-        price: 1499,
-        rating: 2.5,
-        image: "https://assets.ajio.com/medias/sys_master/root/20241008/UQdC/67051a94f9b8ef490ba35a19/-473Wx593H-443057667-offwhite-MODEL.jpg",
-        description: "Premium cotton hoodie"
-      },
-      {
-        id: 5,
-        name: "Black Hoodie",
-        category: "kids",
-        price: 1599,
-        rating: 4.5,
-        image: "https://assets.ajio.com/medias/sys_master/root/20240930/oNx6/66fabe53f9b8ef490b851f78/-473Wx593H-700517023-black-MODEL.jpg",
-        description: "Premium cotton hoodie"
-      },
-      {
-        id: 6,
-        name: "Pink Frock",
-        category: "kids",
-        price: 1299,
-        rating: 4.5,
-        image: "https://stanwellskids.in/cdn/shop/files/babypinkrany2-_1_1024x1024.jpg",
-        description: "Premium cotton hoodie"
-      },
-      {
-        id: 7,
-        name: "Shirt",
-        category: "men",
-        price: 1099,
-        rating: 3.5,
-        image: "https://i.pinimg.com/736x/04/b4/a8/04b4a8c49186b625847e5a060753aef3.jpg",
-        description: "Premium cotton shirt"
-      },
-      {
-        id: 8,
-        name: "T-Shirt",
-        category: "men",
-        price: 999,
-        rating: 4,
-        image: "https://vader-prod.s3.amazonaws.com/1762694268-mhl-tshirts-mackweldon-0260-688a641b198e3.jpg",
-        description: "Summer t-shirt"
-      },
-       {
-        id: 9,
-        name: "Shorts",
-        category: "men",
-        price: 599,
-        rating: 3,
-        image: "https://imagescdn.pantaloons.com/img/app/product/1/1018836-13894415.jpg",
-        description: "Denim shorts"
-      },
-      {
-        id: 10,
-        name: "Shorts",
-        category: "women",
-        price: 599,
-        rating: 3,
-        image: "https://metalhawk.in/cdn/shop/products/MHWJN19650_2.jpg",
-        description: "Denim shorts"
-      },
-       {
-        id: 11,
-        name: "Shirt",
-        category: "women",
-        price: 899,
-        rating: 3,
-        image: "https://i.pinimg.com/736x/70/a7/37/70a737b96c845f08b41763afe885babf.jpg",
-        description: "Oversized t-shirt"
-      },
-       {
-        id: 12,
-        name: "Kurti Salwar",
-        category: "women",
-        price: 1299,
-        rating: 4,
-        image: "https://5.imimg.com/data5/SELLER/Default/2022/1/VT/QP/SD/52451400/ladies-salwar-suit.jpeg",
-        description: "Cotton kurti salwar"
-      },
-      {
-        id: 13,
-        name: "Top",
-        category: "kids",
-        price: 299,
-        rating: 4,
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_MMvYV3VMImbUFVrSm2g-Ro83j2E6Pf8JcA&s",
-        description: "Cotton top"
-      },
-      {
-        id: 14,
-        name: "Skirt",
-        category: "kids",
-        price: 199,
-        rating: 4,
-        image: "https://img.tatacliq.com/images/i10/437Wx649H/MP000000016743668_437Wx649H_202303031929231.jpeg",
-        description: "Denim skirt"
-      },
-      {
-        id: 15,
-        name: "Jumsuite",
-        category: "kids",
-        price: 1599,
-        rating: 4,
-        image: "https://5.imimg.com/data5/SELLER/Default/2022/5/DL/PB/TZ/152310553/o1a9665-copy-500x500.jpg",
-        description: "Summer muslin jumsuite"
-      },
-      {
-        id: 16,
-        name: "Leather Belt",
-        category: "accessories",
-        price: 799,
-        rating: 4,
-        image: "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03",
-        description: "Classic brown leather belt for everyday wear"
-      },
-      {
-        id: 17,
-        name: "Stylish Sunglasses",
-        category: "accessories",
-        price: 1299,
-        rating: 5,
-        image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083",
-        description: "UV protected trendy sunglasses"
-      },
-      {
-        id: 18,
-        name: "Analog Watch",
-        category: "accessories",
-        price: 2499,
-        rating: 4,
-        image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49",
-        description: "Elegant analog watch with leather strap"
-      },
-      {
-        id: 19,
-        name: "Handbag",
-        category: "accessories",
-        price: 1999,
-        rating: 4,
-        image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3",
-        description: "Spacious and stylish handbag for daily use"
-      },
-      {
-        id: 20,
-        name: "Casual Sneakers",
-        category: "accessories",
-        price: 2999,
-        rating: 5,
-        image: "https://images.unsplash.com/photo-1552346154-21d32810aba3?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c25lYWtlcnN8ZW58MHx8MHx8fDA%3D",
-        description: "Comfortable sneakers perfect for casual outings"
-      }
-    ];
+ const productdata = [
+  {
+    id: 1,
+    name: "Black Hoodie",
+    category: "men",
+    price: 1499,
+    rating: 4.5,
+    image: "https://civies.in/cdn/shop/files/blackfront_390x.jpg",
+    description: "Premium cotton hoodie with a soft inner lining, perfect for everyday comfort and winter layering. Features a relaxed fit and durable stitching."
+  },
+  {
+    id: 2,
+    name: "Blue Denim Jacket",
+    category: "men",
+    price: 3499,
+    rating: 3,
+    image: "https://zazu.co.in/cdn/shop/files/69_c5e400c7-8353-48ad-8216-6746cad4241d.jpg",
+    description: "Stylish blue denim jacket with a rugged finish, ideal for casual outings. Designed with multiple pockets and a classic button closure."
+  },
+  {
+    id: 3,
+    name: "Blue Denim Skirt",
+    category: "women",
+    price: 2499,
+    rating: 4,
+    image: "https://assets.myntassets.com/dpr_1.5,q_30,w_400,c_limit,fl_progressive/assets/images/32801644/2025/3/7/38727191-7024-4040-8c04-a44f7f6f11f01741329823281-Chemistry-Women-Skirts-9591741329822623-1.jpg",
+    description: "Trendy denim skirt with a flattering fit, perfect for casual and semi-casual looks. Made with durable fabric for long-lasting wear."
+  },
+  {
+    id: 4,
+    name: "White Hoodie",
+    category: "women",
+    price: 1499,
+    rating: 2.5,
+    image: "https://assets.ajio.com/medias/sys_master/root/20241008/UQdC/67051a94f9b8ef490ba35a19/-473Wx593H-443057667-offwhite-MODEL.jpg",
+    description: "Soft and cozy white hoodie designed for comfort and style. Perfect for lounging or pairing with jeans for a casual chic look."
+  },
+  {
+    id: 5,
+    name: "Black Hoodie",
+    category: "kids",
+    price: 1599,
+    rating: 4.5,
+    image: "https://assets.ajio.com/medias/sys_master/root/20240930/oNx6/66fabe53f9b8ef490b851f78/-473Wx593H-700517023-black-MODEL.jpg",
+    description: "Comfortable kids hoodie made with soft cotton fabric, keeping little ones warm and stylish during cooler days."
+  },
+  {
+    id: 6,
+    name: "Pink Frock",
+    category: "kids",
+    price: 1299,
+    rating: 4.5,
+    image: "https://stanwellskids.in/cdn/shop/files/babypinkrany2-_1_1024x1024.jpg",
+    description: "Adorable pink frock crafted with breathable fabric, perfect for parties and daily wear. Designed for comfort and cuteness."
+  },
+  {
+    id: 7,
+    name: "Shirt",
+    category: "men",
+    price: 1099,
+    rating: 3.5,
+    image: "https://i.pinimg.com/736x/04/b4/a8/04b4a8c49186b625847e5a060753aef3.jpg",
+    description: "Premium cotton shirt with a crisp finish, ideal for office wear and casual outings. Offers comfort with a modern fit."
+  },
+  {
+    id: 8,
+    name: "T-Shirt",
+    category: "men",
+    price: 999,
+    rating: 4,
+    image: "https://vader-prod.s3.amazonaws.com/1762694268-mhl-tshirts-mackweldon-0260-688a641b198e3.jpg",
+    description: "Lightweight summer t-shirt made with breathable fabric, perfect for hot weather and everyday casual wear."
+  },
+  {
+    id: 9,
+    name: "Shorts",
+    category: "men",
+    price: 599,
+    rating: 3,
+    image: "https://imagescdn.pantaloons.com/img/app/product/1/1018836-13894415.jpg",
+    description: "Comfortable denim shorts designed for daily wear. Offers a relaxed fit and durable stitching for long-lasting use."
+  },
+  {
+    id: 10,
+    name: "Shorts",
+    category: "women",
+    price: 599,
+    rating: 3,
+    image: "https://metalhawk.in/cdn/shop/products/MHWJN19650_2.jpg",
+    description: "Stylish women's denim shorts with a modern fit, perfect for casual outings and summer styling."
+  },
+  {
+    id: 11,
+    name: "Shirt",
+    category: "women",
+    price: 899,
+    rating: 3,
+    image: "https://i.pinimg.com/736x/70/a7/37/70a737b96c845f08b41763afe885babf.jpg",
+    description: "Oversized shirt designed for a relaxed and trendy look. Perfect for pairing with jeans or skirts."
+  },
+  {
+    id: 12,
+    name: "Kurti Salwar",
+    category: "women",
+    price: 1299,
+    rating: 4,
+    image: "https://5.imimg.com/data5/SELLER/Default/2022/1/VT/QP/SD/52451400/ladies-salwar-suit.jpeg",
+    description: "Elegant cotton kurti salwar set, perfect for daily wear and festive occasions. Combines comfort with traditional style."
+  },
+  {
+    id: 13,
+    name: "Top",
+    category: "kids",
+    price: 299,
+    rating: 4,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_MMvYV3VMImbUFVrSm2g-Ro83j2E6Pf8JcA&s",
+    description: "Soft cotton top for kids, designed for comfort and easy movement. Ideal for everyday wear."
+  },
+  {
+    id: 14,
+    name: "Skirt",
+    category: "kids",
+    price: 199,
+    rating: 4,
+    image: "https://img.tatacliq.com/images/i10/437Wx649H/MP000000016743668_437Wx649H_202303031929231.jpeg",
+    description: "Cute denim skirt for kids with a comfortable fit, perfect for playful and casual looks."
+  },
+  {
+    id: 15,
+    name: "Jumsuite",
+    category: "kids",
+    price: 1599,
+    rating: 4,
+    image: "https://5.imimg.com/data5/SELLER/Default/2022/5/DL/PB/TZ/152310553/o1a9665-copy-500x500.jpg",
+    description: "Soft muslin jumpsuit for kids, breathable and lightweight, ideal for summer days and comfortable wear."
+  },
+  {
+    id: 16,
+    name: "Leather Belt",
+    category: "accessories",
+    price: 799,
+    rating: 4,
+    image: "https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03",
+    description: "Classic brown leather belt crafted with high-quality material, perfect for both formal and casual outfits."
+  },
+  {
+    id: 17,
+    name: "Stylish Sunglasses",
+    category: "accessories",
+    price: 1299,
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083",
+    description: "Trendy sunglasses with UV protection, designed to elevate your style while protecting your eyes."
+  },
+  {
+    id: 18,
+    name: "Analog Watch",
+    category: "accessories",
+    price: 2499,
+    rating: 4,
+    image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49",
+    description: "Elegant analog watch with a premium leather strap, suitable for both formal and casual occasions."
+  },
+  {
+    id: 19,
+    name: "Handbag",
+    category: "accessories",
+    price: 1999,
+    rating: 4,
+    image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3",
+    description: "Spacious and stylish handbag designed for daily use, offering both functionality and fashion."
+  },
+  {
+    id: 20,
+    name: "Casual Sneakers",
+    category: "accessories",
+    price: 2999,
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1552346154-21d32810aba3?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c25lYWtlcnN8ZW58MHx8MHx8fDA%3D",
+    description: "Comfortable casual sneakers with cushioned soles, perfect for daily wear, travel, and long walks."
+  }
+];
 
     const [search, setSearch] = useState("")
     const [products] = useState(productdata)
